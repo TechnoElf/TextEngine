@@ -1,11 +1,10 @@
 package com.jhjavadev.textengine.game;
 
-import com.jhjavadev.textengine.console.TextConsole;
-
 import java.io.*;
+import com.jhjavadev.textengine.console.Console;
 
 public class Game {
-	private TextConsole console;
+	private Console console;
 
 	private Stage[] stages;
 	private int stageIndex;
@@ -18,7 +17,7 @@ public class Game {
 
 		this.stages = stages;
 		stageIndex = 0;
-		console = new TextConsole(w, h, title);
+		console = new Console(w, h, title);
 	}
 
 	public void start() {
