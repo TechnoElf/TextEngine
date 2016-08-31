@@ -1,9 +1,6 @@
-package com.jhjavadev.LD36.console;
-
-import com.sun.prism.paint.*;
+package com.jhjavadev.textengine.console;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.Color;

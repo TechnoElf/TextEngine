@@ -1,4 +1,4 @@
-package com.jhjavadev.LD36.console;
+package com.jhjavadev.textengine.console;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

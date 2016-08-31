@@ -1,7 +1,6 @@
-package com.jhjavadev.LD36.game;
+package com.jhjavadev.textengine.game;
 
-import com.jhjavadev.LD36.console.Console;
-import com.jhjavadev.LD36.console.TextConsole;
+import com.jhjavadev.textengine.console.TextConsole;
 
 public abstract class Stage {
 	protected int pos = 0;

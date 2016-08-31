@@ -1,6 +1,6 @@
-package com.jhjavadev.LD36.game;
+package com.jhjavadev.textengine.game;
 
-import com.jhjavadev.LD36.console.TextConsole;
+import com.jhjavadev.textengine.console.TextConsole;
 
 import java.io.*;
 
@@ -24,11 +24,6 @@ public class Game {
 	public void start() {
 		load();
 		console.setVisible(true);
-
-		console.printText("Lyrics by JHjavaDev");
-		console.printText("");
-		console.printText("Type \'help\' for a list of actions");
-		console.printText("");
 
 		stages[stageIndex].printStart(console);
 		console.printText("");
