@@ -1,5 +1,8 @@
 package com.jhjavadev.textengine.console;
 
+import org.luaj.vm2.LuaValue;
+import org.luaj.vm2.lib.OneArgFunction;
+
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
@@ -69,12 +72,6 @@ public class Console extends JFrame {
 
 	public void clear() {
 		text.setText("");
-	}
-
-	public void randomize() {
-		for (int i = 0; i < getWidth(); i++) {
-			text.append(Integer.toHexString(new Random().nextInt()));
-		}
 	}
 
 	public void backspace() {
