@@ -1,15 +1,11 @@
 package com.jhjavadev.textengine.console;
 
-import org.luaj.vm2.LuaValue;
-import org.luaj.vm2.lib.OneArgFunction;
-
 import javax.swing.*;
 import javax.swing.text.DefaultCaret;
 import java.awt.*;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Random;
 
 public class Console extends JFrame {
 	private JTextArea text;

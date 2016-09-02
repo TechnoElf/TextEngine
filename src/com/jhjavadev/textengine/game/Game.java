@@ -1,6 +1,5 @@
 package com.jhjavadev.textengine.game;
 
-import java.io.*;
 import java.util.HashMap;
 
 import com.jhjavadev.textengine.console.Console;
@@ -9,7 +8,7 @@ public class Game {
 	private Console console;
 
 	private HashMap<String, Stage> stages;
-	private int stageIndex;
+	private String stage;
 
 	public Game(int w, int h, String title, String folder) {
 		this.stages = Loader.loadGame(folder);
@@ -23,7 +22,7 @@ public class Game {
 			System.exit(1);
 		}
 
-		stageIndex = 0;
+		stage = "main.lua";
 		console = new Console(w, h, title);
 	}
 
@@ -33,20 +32,11 @@ public class Game {
 		run();
 	}
 
-	public void run() {
+	private void run() {
 		while (true) {
-			String str = console.requestText("What will you do?");
-			String[] input = str.split(" ");
+			String ret = stages.get(stage).update(console);
 
-			String cmd = input[0].toLowerCase().replace("_", "").replace("-", "");
-			String[] args = new String[input.length - 1];
-			for (int i = 1; i < input.length; i++) {
-				args[i - 1] = input[i].toLowerCase().replace("_", "").replace("-", "");
-			}
-
-			stages.get("main.lua").update(console);
-
-			if (cmd.equals("quit")) {
+			if (ret.equals("quit")) {
 				break;
 			}
 
@@ -56,46 +46,7 @@ public class Game {
 		stop();
 	}
 
-	public void stop() {
+	private void stop() {
 		System.exit(0);
 	}
-
-//	private void save() {
-//		String file = console.getTitle() + ".sav";
-//
-//		BufferedWriter writer;
-//		try {
-//			writer = new BufferedWriter(new FileWriter(file));
-//
-//			writer.write(Integer.toString(stageIndex));
-//
-//			writer.close();
-//		} catch (FileNotFoundException e) {
-//			System.out.println("INFO: File " + file + " does not exist");
-//		} catch (IOException e) {
-//			System.err.println("ERROR: Could not read file " + file);
-//			e.printStackTrace();
-//			System.exit(1);
-//		}
-//	}
-//
-//	private void load() {
-//		String file = console.getTitle() + ".sav";
-//
-//		BufferedReader reader;
-//		try {
-//			reader = new BufferedReader(new FileReader(file));
-//			String line = reader.readLine();
-//
-//			stageIndex = Integer.parseInt(line);
-//
-//			reader.close();
-//		} catch (FileNotFoundException e) {
-//			System.out.println("INFO: File " + file + " does not exist");
-//		} catch (IOException e) {
-//			System.err.println("ERROR: Could not read file " + file);
-//			e.printStackTrace();
-//			System.exit(1);
-//		}
-//	}
 }
