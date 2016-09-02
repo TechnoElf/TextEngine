@@ -1,9 +1,6 @@
 function update(c)
-    local i = c:requestText("What will you do?")
-    if (i == "quit") then
-        return "quit"
-    else
-        c:printText("I didn't understand you.")
-    end
-    return ""
+    print("INFO: Ran update in main.lua")
+    c:println("Text Engine by JHjavaDev")
+    c:println()
+    return "test.lua"
 end

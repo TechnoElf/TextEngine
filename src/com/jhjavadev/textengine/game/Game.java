@@ -38,9 +38,13 @@ public class Game {
 
 			if (ret.equals("quit")) {
 				break;
+			} else if (ret.endsWith(".lua")) {
+				if (stages.containsKey(ret)) {
+					stage = ret;
+				} else {
+					System.err.println("ERROR: stage " + ret + "not in scripts folder");
+				}
 			}
-
-			console.println();
 		}
 
 		stop();

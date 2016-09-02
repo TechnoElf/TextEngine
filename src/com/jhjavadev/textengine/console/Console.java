@@ -74,10 +74,6 @@ public class Console extends JFrame {
 		text.setText(text.getText().substring(0, text.getText().length() - 1));
 	}
 
-	public void printText(String str) {
-		println(str);
-	}
-
 	public void waitForEnter(String str) {
 		println(str);
 
