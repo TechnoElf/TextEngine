@@ -10,19 +10,14 @@ public class Game {
 	private HashMap<String, Stage> stages;
 	private String stage;
 
-	public Game(int w, int h, String title, String folder) {
-		this.stages = Loader.loadGame(folder);
+	public Game(int w, int h, String title, String script) {
+		this.stages = Loader.loadScripts();
 
-		if (stages.size() < 1) {
-			System.err.println("ERROR: No files in folder " + folder);
-			System.exit(1);
-		}
-		if (!stages.containsKey("main.lua")) {
-			System.err.println("ERROR: No main script in folder " + folder);
-			System.exit(1);
+		if (!stages.containsKey(script)) {
+			System.err.println("ERROR: Script " + script + "not in scripts folder");
 		}
 
-		stage = "main.lua";
+		stage = script;
 		console = new Console(w, h, title);
 	}
 

@@ -1,0 +1,6 @@
+<config>
+    <width>600</width>
+    <height>400</height>
+    <name>TextEngine</name>
+    <script>main.lua</script>
+</config>
