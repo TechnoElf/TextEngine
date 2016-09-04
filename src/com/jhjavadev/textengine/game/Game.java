@@ -11,14 +11,10 @@ public class Game {
 	private String stage;
 
 	public Game(int w, int h, String title, String script) {
-		this.stages = Loader.loadScripts();
-
-		if (!stages.containsKey(script)) {
-			System.err.println("ERROR: Script " + script + "not in scripts folder");
-		}
-
-		stage = script;
 		console = new Console(w, h, title);
+
+		this.stages = Loader.loadScripts();
+		loadStage(script);
 	}
 
 	public void start() {
@@ -34,11 +30,7 @@ public class Game {
 			if (ret.equals("quit")) {
 				break;
 			} else if (ret.endsWith(".lua")) {
-				if (stages.containsKey(ret)) {
-					stage = ret;
-				} else {
-					System.err.println("ERROR: stage " + ret + "not in scripts folder");
-				}
+				loadStage(ret);
 			}
 		}
 
@@ -47,5 +39,15 @@ public class Game {
 
 	private void stop() {
 		System.exit(0);
+	}
+
+	public void loadStage(String stage) {
+		if (stages.containsKey(stage)) {
+			this.stage = stage;
+			stages.get(stage).start(console);
+		} else {
+			System.err.println("ERROR: stage " + stage + " not in scripts folder");
+			System.exit(1);
+		}
 	}
 }

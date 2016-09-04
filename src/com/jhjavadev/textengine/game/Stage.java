@@ -13,6 +13,10 @@ public class Stage {
 		globals.loadfile(file).call();
 	}
 
+	public void start(Console c) {
+		globals.get("start").call(CoerceJavaToLua.coerce(c));
+	}
+
 	public String update(Console c) {
 		return globals.get("update").call(CoerceJavaToLua.coerce(c)).toString();
 	}

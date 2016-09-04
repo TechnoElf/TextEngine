@@ -1,3 +1,8 @@
+function start(c)
+    c:println("Started test.lua")
+    c:println()
+end
+
 function update(c)
     print("INFO: Ran update in test.lua")
     local i = c:requestText("What will you do?")
