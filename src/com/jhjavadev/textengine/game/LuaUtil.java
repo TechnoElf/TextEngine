@@ -16,6 +16,6 @@ public class LuaUtil {
 	}
 
 	public static boolean par1Is(String[] input, String par) {
-		return input[0].equals(par);
+		return input[1].equals(par);
 	}
 }
