@@ -11,6 +11,7 @@ public class Stage {
 	public Stage(String file) {
 		globals = JsePlatform.standardGlobals();
 		globals.loadfile(file).call();
+		globals.set("u", CoerceJavaToLua.coerce(LuaUtil.class));
 	}
 
 	public void start(Console c) {
